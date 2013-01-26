@@ -1,0 +1,3 @@
+neko_to_neko_api_homepage:
+    pattern:  /register
+    defaults: { _controller: NekoToNekoApiBundle:Default:index }

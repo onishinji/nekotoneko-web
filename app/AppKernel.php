@@ -19,7 +19,10 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new FOS\OAuthServerBundle\FOSOAuthServerBundle(), 
             new NekoToNeko\MainBundle\NekoToNekoMainBundle(),
+            new NekoToNeko\ApiBundle\NekoToNekoApiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

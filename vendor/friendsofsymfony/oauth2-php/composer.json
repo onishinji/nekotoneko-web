@@ -1,0 +1,29 @@
+{
+    "name": "friendsofsymfony/oauth2-php",
+    "type": "library",
+    "description": "OAuth2 library",
+    "keywords": ["oauth", "oauth2"],
+    "homepage": "https://github.com/FriendsOfSymfony/oauth2-php",
+    "authors": [
+        {
+            "name": "Arnaud Le Blanc",
+            "email": "arnaud.lb@gmail.com"
+        },
+        {
+            "name": "FriendsOfSymfony Community",
+            "homepage": "https://github.com/FriendsOfSymfony/oauth2-php/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/http-foundation": ">=2.0.0, <2.2.0-dev"
+    },
+    "autoload": {
+        "psr-0": { "OAuth2": "lib/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

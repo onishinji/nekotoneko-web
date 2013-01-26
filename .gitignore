@@ -1,2 +1,7 @@
 /app/cache
 /app/logs/dev.log
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/

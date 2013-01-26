@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    
 
 framework:
     #esi:             ~
@@ -17,6 +18,7 @@ framework:
     trust_proxy_headers: false # Deprecated in 2.0; will be removed in 2.3 (used trusted_proxies instead)
     trusted_proxies: ~
     session:         ~
+    translator: ~
 
 # Twig Configuration
 twig:
@@ -58,3 +60,17 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: NekoToNeko\MainBundle\Entity\User
+    
+fos_oauth_server:
+    db_driver: orm       # Driver availables: orm, mongodb, or propel
+    client_class:        NekoToNeko\ApiBundle\Entity\Client
+    access_token_class:  NekoToNeko\ApiBundle\Entity\AccessToken
+    refresh_token_class: NekoToNeko\ApiBundle\Entity\RefreshToken
+    auth_code_class:     NekoToNeko\ApiBundle\Entity\AuthCode
+    #service:
+    #    user_provider: fos_user.user_manager
