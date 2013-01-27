@@ -5,8 +5,8 @@ namespace NekoToNeko\ApiBundle\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\OAuthServerBundle\Controller\AuthorizeController as BaseAuthorizeController;
-use Acme\OAuthServerBundle\Form\Model\Authorize;
-use Acme\OAuthServerBundle\Document\Client;
+use NekoToNeko\ApiBundle\Form\Model\Authorize;
+use NekoToNeko\ApiBundle\Entity\Client;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AuthorizeController extends BaseAuthorizeController
@@ -26,8 +26,8 @@ class AuthorizeController extends BaseAuthorizeController
         
         $user = $this->container->get('security.context')->getToken()->getUser();
         
-        $form = $this->container->get('acme_oauth_server.authorize.form');
-        $formHandler = $this->container->get('acme_oauth_server.authorize.form_handler');
+        $form = $this->container->get('nekotoneko_oauth_server.authorize.form');
+        $formHandler = $this->container->get('nekotoneko_oauth_server.authorize.form_handler');
         
         $authorize = new Authorize();
         
@@ -35,7 +35,7 @@ class AuthorizeController extends BaseAuthorizeController
             return $response;
         }
                 
-        return $this->container->get('templating')->renderResponse('AcmeOAuthServerBundle:Authorize:authorize.html.php', array(
+        return $this->container->get('templating')->renderResponse('NekoToNekoApiBundle:Authorize:authorize.html.php', array(
             'form' => $form->createView(),
             'client' => $client,
         ));

@@ -1,5 +1,4 @@
 <?php
-// src/Acme/ApiBundle/Entity/AuthCode.php
 
 namespace NekoToNeko\ApiBundle\Entity;
 

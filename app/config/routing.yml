@@ -27,10 +27,9 @@ fos_oauth_server_token:
 
 fos_oauth_server_authorize:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
-  
+    
 neko_to_neko_api:
-    resource: "@NekoToNekoApiBundle/Resources/config/routing.yml"
-    prefix:   /api$    
+    resource: "@NekoToNekoApiBundle/Resources/config/routing.yml" 
 
 # Internal routing configuration to handle ESI
 # ****** WARNING ******

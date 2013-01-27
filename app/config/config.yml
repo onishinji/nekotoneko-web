@@ -72,5 +72,5 @@ fos_oauth_server:
     access_token_class:  NekoToNeko\ApiBundle\Entity\AccessToken
     refresh_token_class: NekoToNeko\ApiBundle\Entity\RefreshToken
     auth_code_class:     NekoToNeko\ApiBundle\Entity\AuthCode
-    #service:
-    #    user_provider: fos_user.user_manager
+    service:
+        user_provider: fos_user.user_manager

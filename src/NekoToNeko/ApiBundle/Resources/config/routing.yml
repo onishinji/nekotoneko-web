@@ -1,3 +1,9 @@
-neko_to_neko_api_homepage:
-    pattern:  /register
-    defaults: { _controller: NekoToNekoApiBundle:Default:index }
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+    
+nekotoneko_oauth_server_security:
+    resource: "@NekoToNekoApiBundle/Resources/config/routing/security.xml"
+    prefix: /

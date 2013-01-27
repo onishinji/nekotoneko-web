@@ -1,5 +1,4 @@
 <?php
-// src/Acme/ApiBundle/Entity/RefreshToken.php
 
 namespace NekoToNeko\ApiBundle\Entity;
 
