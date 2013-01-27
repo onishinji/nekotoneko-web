@@ -39,13 +39,7 @@ after 'deploy:update_code', 'deploy:mine'
 namespace :deploy do
  
   task :mine, :roles => :app do
-    shared_dirs = [
-      app_path + "/logs",
-      app_path + "/cache"
-    ]
     
-    # add group write permissions
-    #run "chmod -R g+w #{shared_dirs.join(' ')}"
     # Allow directories to be writable by webserver and this user
     run "cd #{latest_release} && sudo chown -R www-data:www-data app/cache"
     run "cd #{latest_release} && sudo chown -R www-data:www-data app/logs"
