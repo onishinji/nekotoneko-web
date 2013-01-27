@@ -30,3 +30,25 @@ set :update_vendors, true
 
 # Be more verbose by uncommenting the following line
 #logger.level = Logger::MAX_LEVEL
+
+
+before 'deploy:update_code', 'deploy:mine'
+after 'deploy:update_code', 'deploy:mine'
+ 
+# This is a custom task to set the ACL on the app/logs and app/cache directories
+namespace :deploy do
+ 
+  task :mine, :roles => :app do
+    shared_dirs = [
+      app_path + "/logs",
+      app_path + "/cache"
+    ]
+    
+    # add group write permissions
+    #run "chmod -R g+w #{shared_dirs.join(' ')}"
+    # Allow directories to be writable by webserver and this user
+    run "cd #{latest_release} && sudo chown -R www-data:www-data app/cache"
+    run "cd #{latest_release} && sudo chown -R www-data:www-data app/logs"
+    run "cd #{latest_release} && sudo chmod -R 777 app/cache"
+  end
+end
