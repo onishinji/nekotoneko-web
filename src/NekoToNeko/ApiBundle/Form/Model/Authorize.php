@@ -2,7 +2,9 @@
 
 namespace NekoToNeko\ApiBundle\Form\Model;
 
-class Authorize
+use FOS\OAuthServerBundle\Form\Model\Authorize as BaseAuthorize;
+
+class Authorize extends BaseAuthorize
 {
     protected $allowAccess;
     

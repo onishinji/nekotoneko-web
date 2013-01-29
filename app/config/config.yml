@@ -66,11 +66,46 @@ fos_user:
     firewall_name: main
     user_class: NekoToNeko\MainBundle\Entity\User
     
+#fos_oauth_server:
+#    db_driver: orm       # Driver availables: orm, mongodb, or propel
+#    client_class:        NekoToNeko\ApiBundle\Entity\Client
+#    access_token_class:  NekoToNeko\ApiBundle\Entity\AccessToken
+#    refresh_token_class: NekoToNeko\ApiBundle\Entity\RefreshToken
+#    auth_code_class:     NekoToNeko\ApiBundle\Entity\AuthCode
+#    service:
+#        user_provider: fos_user.user_manager
+        
+        
 fos_oauth_server:
-    db_driver: orm       # Driver availables: orm, mongodb, or propel
-    client_class:        NekoToNeko\ApiBundle\Entity\Client
-    access_token_class:  NekoToNeko\ApiBundle\Entity\AccessToken
-    refresh_token_class: NekoToNeko\ApiBundle\Entity\RefreshToken
-    auth_code_class:     NekoToNeko\ApiBundle\Entity\AuthCode
+    db_driver:                  orm # Required. Available: mongodb, orm, propel
+    client_class:               NekoToNeko\ApiBundle\Entity\Client # Required
+    access_token_class:         NekoToNeko\ApiBundle\Entity\AccessToken # Required
+    refresh_token_class:        NekoToNeko\ApiBundle\Entity\RefreshToken # Required
+    auth_code_class:            NekoToNeko\ApiBundle\Entity\AuthCode # Required
+    #model_manager_name:         ~ # change it to the name of your entity/document manager if you don't want to use the default one.
+    authorize:
+        form:
+            type:               fos_oauth_server_authorize
+            handler:            fos_oauth_server.authorize.form.handler.default
+            name:               fos_oauth_server_authorize_form
+            validation_groups:
+
+                # Defaults:
+                - Authorize
+                - Default
     service:
+        storage:                fos_oauth_server.storage.default
         user_provider: fos_user.user_manager
+        client_manager:         fos_oauth_server.client_manager.default
+        access_token_manager:   fos_oauth_server.access_token_manager.default
+        refresh_token_manager:  fos_oauth_server.refresh_token_manager.default
+        auth_code_manager:      fos_oauth_server.auth_code_manager.default
+        #options:
+            # Prototype
+            #key:                []
+
+            # Example
+            # supported_scopes: string
+
+    template:
+        engine:                 twig        

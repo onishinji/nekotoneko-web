@@ -8,8 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function coucouAction()
     {
-        return array('name' => $name);
+        return "plop";
     }
 }

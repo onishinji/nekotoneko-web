@@ -7,3 +7,8 @@ fos_oauth_server_authorize:
 nekotoneko_oauth_server_security:
     resource: "@NekoToNekoApiBundle/Resources/config/routing/security.xml"
     prefix: /
+    
+    
+nekotoneko_test:
+    defaults:  { _controller: NekoToNekoApiBundle:Default:coucou }
+    pattern: /api/coucou

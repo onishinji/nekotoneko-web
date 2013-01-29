@@ -1,4 +1,4 @@
-<?php $view['slots']->start('body') ?>
+
     <div class="form">
         <form id="login" class="vertical" action="<?php echo $view['router']->generate('nekotoneko_oauth_server_auth_login_check') ?>" method="post">
             <div class="form_title">
@@ -20,4 +20,3 @@
             </div>
         </form>
     </div>
-<?php $view['slots']->stop() ?>

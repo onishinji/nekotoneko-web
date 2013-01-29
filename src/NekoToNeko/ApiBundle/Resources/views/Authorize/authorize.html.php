@@ -1,5 +1,4 @@
-<?php $view['slots']->start('body') ?>
-    <div class="form">
+  <div class="form">
         <form class="vertical" action="<?php echo $view['router']->generate('fos_oauth_server_authorize', array(
             'client_id' => $view['request']->getParameter('client_id'),
             'response_type' => $view['request']->getParameter('response_type'),
@@ -16,4 +15,3 @@
             </div>
         </form>
     </div>
-<?php $view['slots']->stop() ?>
